@@ -1,20 +1,21 @@
 
 ;; ----- smex-history -----
 (
+ dired
+ customize-group
  list-packages
  org-mode
  switch-to-buffer
- customize-group
  package-list-packages
  cd
- 5x5
 )
 
 ;; ----- smex-data -----
 (
  (package-list-packages . 1)
- (customize-group . 2)
+ (customize-group . 4)
  (switch-to-buffer . 1)
  (org-mode . 3)
  (list-packages . 1)
+ (dired . 1)
 )

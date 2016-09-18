@@ -21,17 +21,12 @@
 	       company
 	       ;; --- Better Editor ---
 	       hungry-delete
-	       ;smex
 	       swiper
 	       counsel
 	       smartparens
-	       ;; --- Major Mode ---
-	       ;;js2-mode
-	       ;; --- Minor Mode ---
-	       ;;nodejs-repl
 	       exec-path-from-shell
+	       popwin
 	       ;; --- Themes ---
-	       ;;monokai-theme
 	       solarized-theme
 	       ) "Default packages")
 
@@ -50,18 +45,24 @@
 	(package-install pkg))))
 
 ;; Find Executable Path on OS X
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;;(when (memq window-system '(mac ns))
+;;(exec-path-from-shell-initialize))
 
 
 ;;(require 'smex) ; Not needed if you use package.el
 ;;(smex-initialize)
 
-;;
+;;设置匹配括号的插件
 (require 'smartparens-config)
 ;; Always start smartparens mode in js-mode.
 ;;(add-hook 'js-mode-hook #'smartparens-mode)
 (smartparens-global-mode t)
+
+;;设置使用popwin
+(require 'popwin)
+(popwin-mode t)
+
+
 
 ;;------------
 (provide 'init-packages)

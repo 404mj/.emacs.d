@@ -28,6 +28,27 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-c g") 'counsel-git)
 
+;;设置缩进
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+(defun indent-buffer()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun indent-region-or-buffer()
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+	(progn 
+	  (indent-region (region-beginning) (region-end))
+	  (message "Indent selected region."))
+      (progn 
+	(indent-buffer)
+	(message "Indent buffer.")))))
+
+;;可以使用C-x C-j进入当前编辑文件的路径
+(require 'dired-x)
+
+
 ;;----------------
 (provide 'init-keybindings)
 

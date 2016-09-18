@@ -19,9 +19,6 @@
 ;;http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
 ;;(set-face-attribute 'default nil :height 160)
 
-;;close ~ file 
-(setq make-backup-files nil)
-
 ;;可以选中一段文字后替换
 (delete-selection-mode 1)
 
@@ -30,6 +27,8 @@
 
 ;;自动保存文件
 (setq auto-save-default nil)
+;;close ~ file 
+(setq make-backup-files nil)
 
 ;;简化确认与否
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -42,6 +41,13 @@
 
 ;;高亮显示匹配的括号
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+;;配置当光标在代码中时也高亮两边的括号
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
 
 ;;高亮当前行
 (global-hl-line-mode t)
@@ -57,8 +63,11 @@
 (require 'org)
 (setq org-src-fontify-natively)
 
-;;
-
+;;设置Dired mode来减少进入目录产生的buffer
+;;延迟加载
+(put 'dired-find-alternate-file 'disabled nil)
+(with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;;-------------
 (provide 'init-better-defaults)
