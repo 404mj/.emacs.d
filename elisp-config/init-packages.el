@@ -22,10 +22,15 @@
 	       ;; --- Better Editor ---
 	       hungry-delete
 	       swiper
+	       ;;没有使用helm
 	       counsel
 	       smartparens
 	       exec-path-from-shell
 	       popwin
+	       expand-region
+	       iedit
+	       helm-ag
+	       yasnippet
 	       ;; --- Themes ---
 	       solarized-theme
 	       ) "Default packages")
@@ -62,9 +67,20 @@
 (require 'popwin)
 (popwin-mode t)
 
+;;设置使用expand-region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;;设置多行编辑package快捷键
+(global-set-key (kbd "M-s e") 'iedit-mode)
+
+;;设置使用helm-ag
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+
+;;设置yasnippet只在编程启动
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 
 ;;------------
 (provide 'init-packages)
-
-

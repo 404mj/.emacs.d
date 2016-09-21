@@ -17,5 +17,5 @@
  (switch-to-buffer . 1)
  (org-mode . 3)
  (list-packages . 1)
- (dired . 1)
+ (dired . 2)
 )

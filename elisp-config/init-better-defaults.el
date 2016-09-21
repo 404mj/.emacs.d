@@ -61,7 +61,7 @@
 
 ;;添加 Org-mode 文本内语法高亮
 (require 'org)
-(setq org-src-fontify-natively)
+(setq org-src-fontify-natively t)
 
 ;;设置Dired mode来减少进入目录产生的buffer
 ;;延迟加载
