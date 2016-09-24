@@ -48,6 +48,8 @@
 ;;可以使用C-x C-j进入当前编辑文件的路径
 (require 'dired-x)
 
+;;像在shell一样C-w删除一个单词
+(global-set-key (kbd "C-w") 'backward-kill-word)
 
 ;;----------------
 (provide 'init-keybindings)
