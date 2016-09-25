@@ -13,6 +13,7 @@
 (setq custom-file (expand-file-name "elisp-config/custom.el" user-emacs-directory))
 (load-file custom-file)
 
+(require 'jekyll-blog)
 ;;this line should at last!
 (require 'init-keybindings)
 

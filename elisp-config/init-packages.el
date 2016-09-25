@@ -31,7 +31,6 @@
 	       iedit
 	       helm-ag
       	       ;; yasnippet
-	       which-key
 	       ;; --- Themes ---
 	       solarized-theme
 	       ) "Default packages")
@@ -82,9 +81,6 @@
 ;;(yas-reload-all)
 ;;(add-hook 'prog-mode-hook #'yas-minor-mode)
 
-;;设置使用which-key
-(which-key-mode 1)
-(which-key-setup-side-window-bottom)
 
 ;;------------
 (provide 'init-packages)

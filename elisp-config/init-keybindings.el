@@ -49,7 +49,8 @@
 (require 'dired-x)
 
 ;;像在shell一样C-w删除一个单词
-(global-set-key (kbd "C-w") 'backward-kill-word)
+;;(global-set-key (kbd "C-w") 'backward-kill-word)
+;;问题是容易与选择模式下的剪切重复，暂时停用
 
 ;;----------------
 (provide 'init-keybindings)

@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ org-publish
+ jekyll-publish-post
+ jekyll-draft-post
+ org-publish-current-project
  dired
- customize-group
- list-packages
- org-mode
- switch-to-buffer
- package-list-packages
- cd
+ org-publish-project
+ org-version
 )
 
 ;; ----- smex-data -----
@@ -17,5 +17,13 @@
  (switch-to-buffer . 1)
  (org-mode . 3)
  (list-packages . 1)
- (dired . 2)
+ (dired . 5)
+ (org-version . 1)
+ (org-publish . 32)
+ (org-publish-current-project . 3)
+ (org-publish-project . 2)
+ (org-jekyll/publish-project . 5)
+ (org-jekyll/new-post . 1)
+ (jekyll-draft-post . 29)
+ (jekyll-publish-post . 31)
 )
