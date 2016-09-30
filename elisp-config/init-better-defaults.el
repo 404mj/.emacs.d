@@ -69,6 +69,8 @@
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;;解决在org-mode后期的版本内C-c C-e 不支持导出markdown的问题
+(eval-after-load "org" '(require 'ox-md nil t))
+
 ;;-------------
 (provide 'init-better-defaults)
-

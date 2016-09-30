@@ -14,6 +14,7 @@
 (load-file custom-file)
 
 (require 'jekyll-blog)
+;;(require 'ox-gfm)
 ;;this line should at last!
 (require 'init-keybindings)
 
