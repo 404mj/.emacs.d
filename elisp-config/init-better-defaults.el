@@ -5,7 +5,8 @@
 (scroll-bar-mode -1)
 
 ;;显示行号
-(global-linum-mode 1)
+(add-hook 'prog-mode-hook 'linum-mode 1)
+;;(global-linum-mode 1)
 
 ;; 更改光标的样式（不能生效，解决方案见第二集）
 (setq-default cursor-type 'bar)
@@ -72,5 +73,31 @@
 ;;解决在org-mode后期的版本内C-c C-e 不支持导出markdown的问题
 (eval-after-load "org" '(require 'ox-md nil t))
 
+;;移动整行
+(defun move-line (n)
+  "Move the current line up or down by N lines."
+  (interactive "p")
+  (setq col (current-column))
+  (beginning-of-line) (setq start (point))
+  (end-of-line) (forward-char) (setq end (point))
+  (let ((line-text (delete-and-extract-region start end)))
+    (forward-line n)
+    (insert line-text)
+    ;; restore point to original column in moved line
+    (forward-line -1)
+    (forward-char col)))
+
+(defun move-line-up (n)
+  "Move the current line up by N lines."
+  (interactive "p")
+  (move-line (if (null n) -1 (- n))))
+
+(defun move-line-down (n)
+  "Move the current line down by N lines."
+  (interactive "p")
+  (move-line (if (null n) 1 n)))
+
+(global-set-key (kbd "M-p") 'move-line-up)
+(global-set-key (kbd "M-n") 'move-line-down)
 ;;-------------
 (provide 'init-better-defaults)

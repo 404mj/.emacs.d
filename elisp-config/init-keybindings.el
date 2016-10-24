@@ -52,6 +52,8 @@
 ;;(global-set-key (kbd "C-w") 'backward-kill-word)
 ;;问题是容易与选择模式下的剪切重复，暂时停用
 
+(global-set-key (kbd "C-c w") 'word-like-count-mode)
+
 ;;----------------
 (provide 'init-keybindings)
 

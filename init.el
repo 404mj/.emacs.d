@@ -13,8 +13,11 @@
 (setq custom-file (expand-file-name "elisp-config/custom.el" user-emacs-directory))
 (load-file custom-file)
 
-(require 'jekyll-blog)
-;;(require 'ox-gfm)
+;;怎样延迟加载这个模块
+(autoload 'jekyll-blog "lazy loading jekyll-blog" nil)
 ;;this line should at last!
+;;使用Emacs server模式
+(server-start)
+
 (require 'init-keybindings)
 

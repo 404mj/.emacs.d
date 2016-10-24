@@ -2,21 +2,21 @@
 ;; ----- smex-history -----
 (
  package-install
- markdown-mode
- package-list-packages
- dired
- org-publish
- jekyll-publish-post
- jekyll-draft-post
+ package-refresh-contents
+ python-mode
+ org-mode
+ doc-view-mode
+ list-packages
+ customize-group
 )
 
 ;; ----- smex-data -----
 (
  (package-list-packages . 2)
- (customize-group . 4)
+ (customize-group . 5)
  (switch-to-buffer . 1)
- (org-mode . 3)
- (list-packages . 1)
+ (org-mode . 4)
+ (list-packages . 2)
  (dired . 6)
  (org-version . 1)
  (org-publish . 32)
@@ -26,6 +26,10 @@
  (org-jekyll/new-post . 1)
  (jekyll-draft-post . 29)
  (jekyll-publish-post . 31)
- (package-install . 3)
+ (package-install . 5)
  (markdown-mode . 2)
+ (linum-mode . 2)
+ (doc-view-mode . 1)
+ (python-mode . 1)
+ (package-refresh-contents . 1)
 )

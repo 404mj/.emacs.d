@@ -81,6 +81,8 @@
 ;;(yas-reload-all)
 ;;(add-hook 'prog-mode-hook #'yas-minor-mode)
 
+;;设置使用elpy搭建python环境
+(elpy-enable)
 
 ;;------------
 (provide 'init-packages)
