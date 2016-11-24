@@ -1,22 +1,4 @@
-
 ;;这个配置来自网络，官方的文档没看明白，尝试到它能工作，先这样吧，慢慢打磨
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '( (scheme . t)
-    (latex . t)
-    (css . t)
-    (ruby . t)
-    (sh . t)
-    (python . t)
-    (emacs-lisp . t)
-    (matlab . t)
-    (C . t)))
-(setq org-confirm-babel-evaluate nil)
-
-(setq org-src-fontify-natively t)
-
-;; (setq org-export-with-sub-superscripts nil)
 
 (setq org-publish-project-alist
       '(

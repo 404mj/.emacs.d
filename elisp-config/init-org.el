@@ -34,15 +34,51 @@
          ;(gnuplot . t)
          ;(clojure . t)
          (sh . t)
+	 (C . t)
+	 ;;	 (css , t)
+	 ;;	 (scheme . t)
+	 
          ;(ledger . t)
          (org . t)
          (plantuml . t)
          (latex . t))))
+(setq org-confirm-babel-evaluate nil)
 
 ; Use fundamental mode when editing plantuml blocks with C-c '
 ;;(add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
 
 ;;;添加在org中统计字数的功能
 (add-hook 'org-mode-hook 'word-like-count-mode t)
+
+;;设置org导出默认使用xelatex解决导出pdf问题
+;;(add-hook 'LaTeX-mode-hook(lambda ()(add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
+;;(setq org-latex-pdf-process (quote ("xelatex -interaction nonstopmode -output-directory %o %f")))
+;;(setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"))
+;;(load)
+
+
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/texlive/2013/bin/x86_64-linux/"))
+(setq exec-path (append exec-path '("/usr/local/texlive/2013/bin/x86_64-linux/")))
+
+(setq org-latex-pdf-process
+  '("xelatex -interaction nonstopmode -output-directory %o %f"
+        "xelatex -interaction nonstopmode -output-directory %o %f"
+        "xelatex -interaction nonstopmode -output-directory %o %f"))
+
+
+(setq org-confirm-babel-evaluate nil)
+
+(setq org-latex-classes
+      '(("article"
+         " \\documentclass{ctexart}
+")))
+
+;;usage:#+LATEX_CLASS: article
+(setq tex-compile-commands '(("xelatex %r")))
+(setq tex-command "xelatex")
+(setq-default TeX-engine 'xelatex)
+
+
+
 ;;------------
 (provide 'init-org)

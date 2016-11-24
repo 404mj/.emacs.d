@@ -4,9 +4,22 @@
 ;关闭文件滑动控件
 (scroll-bar-mode -1)
 
-;;显示行号
+;;智能显示行号
 (add-hook 'prog-mode-hook 'linum-mode 1)
 ;;(global-linum-mode 1)
+(setq linum-format "%3d|")
+(defun linum-update-window-scale-fix (win)
+  "fix linum for scaled text"
+  (set-window-margins win
+          (ceiling (* (if (boundp 'text-scale-mode-step)
+                  (expt text-scale-mode-step
+                    text-scale-mode-amount) 1)
+              (if (car (window-margins))
+                  (car (window-margins)) 1)
+              ))))
+(advice-add #'linum-update-window :after #'linum-update-window-scale-fix)
+
+
 
 ;; 更改光标的样式（不能生效，解决方案见第二集）
 (setq-default cursor-type 'bar)
@@ -99,5 +112,14 @@
 
 (global-set-key (kbd "M-p") 'move-line-up)
 (global-set-key (kbd "M-n") 'move-line-down)
+
+;;自动不全的company不在org下激活
+;;(add-hook 'prog-mode-hook 'company-mode 1)
+
+;;设置调整字体大小
+;; For Linux
+(global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
+(global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
+
 ;;-------------
 (provide 'init-better-defaults)

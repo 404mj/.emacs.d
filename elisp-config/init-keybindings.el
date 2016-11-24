@@ -52,6 +52,7 @@
 ;;(global-set-key (kbd "C-w") 'backward-kill-word)
 ;;问题是容易与选择模式下的剪切重复，暂时停用
 
+;;设置统计字数的快捷键
 (global-set-key (kbd "C-c w") 'word-like-count-mode)
 
 ;;----------------

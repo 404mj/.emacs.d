@@ -4,7 +4,7 @@
 ;;                      __   ___        ___      ___
 ;; |\/|  /\  |\ |  /\  / _` |__   |\/| |__  |\ |  |
 ;; |  | /~~\ | \| /~~\ \__> |___  |  | |___ | \|  |
-;;使用 Melpa 作为插件的源,将需要的插件名字写在 my/packages 中，Emacs 在启动时会自动下载未被安装的插件。
+;;使用 melpa 作为插件的源,将需要的插件名字写在 my/packages 中，Emacs 在启动时会自动下载未被安装的插件。
 (when (>= emacs-major-version 24)
     (require 'package)
     (package-initialize)
@@ -30,6 +30,9 @@
 	       expand-region
 	       iedit
 	       helm-ag
+               elpy
+	       flycheck
+	       py-autopep8
       	       ;; yasnippet
 	       ;; --- Themes ---
 	       solarized-theme
@@ -83,6 +86,30 @@
 
 ;;设置使用elpy搭建python环境
 (elpy-enable)
+
+;; 设置使用类似与vim中的NERDTree的目录树
+(require 'neotree)
+(setq neo-smart-open t)
+(global-set-key [f8] 'neotree-toggle)
+
+;;替换原有的flymake使用flycheck
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode)
+  )
+
+;;遵循pep8规范
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;; 使用tabbar
+;; (require 'tabbar)
+;; (tabbar-mode)
+;; ;; (define-prefix-command 'lwindow-map)
+;; (global-set-key (kbd "<C-up>") 'tabbar-backward-group)
+;; (global-set-key (kbd "<C-down>") 'tabbar-forward-group)
+;; (global-set-key (kbd "<C-left>") 'tabbar-backward)
+;; (global-set-key (kbd "<C-right>") 'tabbar-forward)
 
 ;;------------
 (provide 'init-packages)

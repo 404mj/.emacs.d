@@ -14,7 +14,10 @@
 (load-file custom-file)
 
 ;;怎样延迟加载这个模块
-(autoload 'jekyll-blog "lazy loading jekyll-blog" nil)
+(setq jekyll-blog-file (expand-file-name "elisp-config/jekyll-blog.el" user-emacs-directory))
+(load-file jekyll-blog-file)
+;;(autoload 'jekyll-blog "lazy loading jekyll-blog" nil)
+
 ;;this line should at last!
 ;;使用Emacs server模式
 (server-start)
