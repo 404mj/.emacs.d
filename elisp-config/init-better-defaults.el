@@ -121,5 +121,13 @@
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
 (global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
 
+;; org-mode中图文混排
+(auto-image-file-mode t)
+
+;; 设置org-mode缩进
+;; (setq org-startup-indented t)
+;;设置自动换行
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines t)))
+(add-hook 'org-mode-hook (lambda () (setq toggle-truncate-lines f)))
 ;;-------------
 (provide 'init-better-defaults)

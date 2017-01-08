@@ -1,37 +1,37 @@
 
 ;; ----- smex-history -----
 (
+ org-publish
+ jekyll-publish-post
+ jekyll-draft-post
  customize-group
- linum-mode
- tabbar-mode
- package-refresh-contents
- package-list-packages
- speedbar
- doc-view-mode
+ shell
+ toggle-truncate-lines
+ iimage-mode
 )
 
 ;; ----- smex-data -----
 (
  (package-list-packages . 6)
- (customize-group . 9)
+ (customize-group . 12)
  (switch-to-buffer . 1)
  (org-mode . 4)
  (list-packages . 2)
  (dired . 6)
  (org-version . 1)
- (org-publish . 32)
+ (org-publish . 45)
  (org-publish-current-project . 3)
  (org-publish-project . 2)
  (org-jekyll/publish-project . 5)
  (org-jekyll/new-post . 1)
- (jekyll-draft-post . 29)
- (jekyll-publish-post . 31)
- (package-install . 6)
+ (jekyll-draft-post . 35)
+ (jekyll-publish-post . 37)
+ (package-install . 8)
  (markdown-mode . 2)
  (linum-mode . 4)
  (doc-view-mode . 2)
  (python-mode . 1)
- (package-refresh-contents . 3)
+ (package-refresh-contents . 4)
  (customize-variable . 1)
  (bookmark-delete . 1)
  (org-latex-export-to-pdf . 1)
@@ -40,4 +40,9 @@
  (elpy-doc . 1)
  (speedbar . 1)
  (tabbar-mode . 2)
+ (iimage-mode . 8)
+ (erc-truncate-mode . 1)
+ (toggle-truncate-lines . 8)
+ (shell . 1)
+ (word-like-count-mode . 1)
 )

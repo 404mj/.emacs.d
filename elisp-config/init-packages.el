@@ -33,7 +33,8 @@
                elpy
 	       flycheck
 	       py-autopep8
-      	       ;; yasnippet
+      	       yasnippet
+	       web-mode
 	       ;; --- Themes ---
 	       solarized-theme
 	       ) "Default packages")
@@ -110,6 +111,9 @@
 ;; (global-set-key (kbd "<C-down>") 'tabbar-forward-group)
 ;; (global-set-key (kbd "<C-left>") 'tabbar-backward)
 ;; (global-set-key (kbd "<C-right>") 'tabbar-forward)
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;;------------
 (provide 'init-packages)

@@ -6,6 +6,7 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.1)
  '(company-minimum-prefix-length 2)
+ '(erc-max-buffer-size 18000)
  '(font-use-system-font t)
  '(package-selected-packages
    (quote
